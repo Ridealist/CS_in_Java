@@ -1,4 +1,4 @@
-package sec06.exam01;
+package basic.grammar;
 
 public class Hello {
     public static void main(String[] args) {
