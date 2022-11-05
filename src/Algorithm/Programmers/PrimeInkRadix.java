@@ -4,7 +4,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/92335
 
 package Algorithm.Programmers;
 
-public class PrimeCountInkRadix {
+public class PrimeInkRadix {
     public int solution(int n, int k) {
         String n_k = Integer.toString(n, k);
         String[] array = n_k.split("0");
