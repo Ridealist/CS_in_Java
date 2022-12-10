@@ -5,10 +5,6 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12941?language=java
 package Algorithm.Programmers;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class MakeMin {
 
