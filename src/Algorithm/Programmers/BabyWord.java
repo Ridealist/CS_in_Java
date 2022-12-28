@@ -37,4 +37,25 @@ public class BabyWord {
             count++;
         }
     }
+
+    public int solutionTwo(String[] babbling) {
+        int answer = 0;
+        for (String string : babbling) {
+            if (string.contains("ayaaya") || string.contains("yeye") || string.contains("woowoo")
+                    || string.contains("mama")) {
+                continue;
+            }
+            string = string.replace("aya", " ");
+            string = string.replace("ye", " ");
+            string = string.replace("woo", " ");
+            string = string.replace("ma", " ");
+            // 빈칸 없이 replace 할 경우 : (aayaya) -> aya -> "" || 빈칸 있게 : (aayaya) -> a ya
+            string = string.replace(" ", "");
+
+            if (string.equals("")) {
+                answer++;
+            }
+        }
+        return answer;
+    }
 }
