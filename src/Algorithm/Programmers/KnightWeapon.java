@@ -11,13 +11,14 @@ public class KnightWeapon {
             int sub = countSub(i);
             if (sub > limit) {
                 answer += power;
-            } else {
-                answer += sub;
+                continue;
             }
+            answer += sub;
         }
         return answer;
     }
 
+    // 1. 약수의 개수 관점
     private static int countSub(int number) {
         if (number == 1) {
             return 1;
@@ -36,7 +37,26 @@ public class KnightWeapon {
         return count;
     }
 
+    // 2. 배수 관점
+    private static int solutionTwo(int number, int limit, int power) {
+        int[] attack = new int[number + 1];
+        for (int i = 1; i <= number; i++) {
+            for (int j = 1; j <= number / i; j++) {
+                attack[i * j]++;
+            }
+        }
+        int answer = 0;
+        for (int value : attack) {
+            if (value > limit) {
+                answer += power;
+            } else {
+                answer += value;
+            }
+        }
+        return answer;
+    }
+
     public static void main(String[] args) {
-        System.out.println(solution(5,3,2));
+        System.out.println(solutionTwo(10,3,2));
     }
 }
