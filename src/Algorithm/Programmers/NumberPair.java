@@ -33,4 +33,32 @@ public class NumberPair {
         str.append(String.valueOf(0).repeat(Math.min(countX[0], countY[0])));
         return str.toString();
     }
+
+    public String solutionTwo(String X, String Y) {
+        int[] xArr = new int[10];
+        int[] yArr = new int[10];
+
+        for (char c : X.toCharArray()) {
+            xArr[c - 48]++;
+        }
+
+        for (char c : Y.toCharArray()) {
+            yArr[c - 48]++;
+        }
+
+        StringBuilder answer = new StringBuilder();
+
+        for (int i = 9; i >= 0; i--) {
+            answer.append(String.valueOf(i).repeat(Math.min(xArr[i], yArr[i])));
+        }
+
+        String temp = answer.toString();
+        if (temp.equals("")) {
+            return "-1";
+        }
+        if (temp.startsWith("0")) {
+            return "0";
+        }
+        return temp;
+    }
 }
