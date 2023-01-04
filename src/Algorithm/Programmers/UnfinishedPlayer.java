@@ -7,6 +7,8 @@ package Algorithm.Programmers;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class UnfinishedPlayer {
     // 처음 풀이 : 시간복잡도 O(3n)
@@ -70,5 +72,24 @@ public class UnfinishedPlayer {
             }
         }
         return participant[participant.length - 1];
+    }
+
+    // 다른 사람 풀이 공부, stream 적극 활용
+    // TODO stream 사용 공부, iterator() 사용 고려
+    public String solutionThree(String[] participant, String[] completion) {
+        Map<String, Long> players = Arrays.stream(participant)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        for (String player : completion) {
+            long value =  players.get(player) - 1;
+
+            if (value == 0) {
+                players.remove(player);
+                continue;
+            }
+            players.put(player, value);
+        }
+
+        return players.keySet().iterator().next();
     }
 }
