@@ -6,14 +6,13 @@ package Algorithm.Programmers;
 
 public class ThreeMan {
     public int solution(int[] number) {
-        int l = number.length;
         int answer = 0;
-        for (int i = 0; i < l; i++) {
-            for (int j = i + 1; j < l; j++) {
+        int l = number.length;
+
+        for (int i = 0; i < l - 2; i++) {
+            for (int j = i + 1; j < l - 1; j++) {
                 for (int k = j + 1; k < l; k++) {
-                    int sum = number[i] + number[j] + number[k];
-                    if (sum == 0) {
-                        // answer += 1과 같은 표현
+                    if ((number[i] + number[j] + number[k]) == 0) {
                         answer++;
                     }
                 }
